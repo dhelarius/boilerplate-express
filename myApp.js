@@ -5,8 +5,16 @@ var app = express();
 console.log('Hello World');
 
 // TODO 2: Imprimir Hello Express en la aplicación
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.send('Hello Express');
-})
+}) */
+
+// TODO 3: Mostrar un archivo HTML en la aplicación
+const path = __dirname + '/views/index.html';
+app.get('/', (req, res) => {
+    res.sendFile(path);
+});
+
+
 
  module.exports = app;
