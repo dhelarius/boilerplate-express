@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+// TODO 4: Agregar middleware express.static()
+app.use(express.static(__dirname + '/public'));
+
 // TODO 1: Imprimir Hello World en consola
 console.log('Hello World');
 
@@ -11,10 +14,9 @@ console.log('Hello World');
 
 // TODO 3: Mostrar un archivo HTML en la aplicación
 const path = __dirname + '/views/index.html';
+
 app.get('/', (req, res) => {
     res.sendFile(path);
 });
-
-
 
  module.exports = app;
