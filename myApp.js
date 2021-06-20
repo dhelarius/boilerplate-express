@@ -15,8 +15,13 @@ console.log('Hello World');
 // TODO 3: Mostrar un archivo HTML en la aplicación
 const path = __dirname + '/views/index.html';
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.sendFile(path);
-});
+}); */
+
+// TODO 5: Enviar un una solictud json
+app.get('/json', (req, res) => {
+    res.json({"message": "Hello json"});
+})
 
  module.exports = app;
