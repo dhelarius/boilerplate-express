@@ -6,11 +6,11 @@ var app = express();
 app.use('/public', express.static(__dirname + '/public'));
 
 // TODO 7: Crear mi propio middleware
- app.use(function middleware(req, res, next) {
+/*  app.use(function middleware(req, res, next) {
     const str = req.method + " " + req.path + " - " + req.ip;
     console.log(str);
     next();
-});
+}); */
 
 // TODO 1: Imprimir Hello World en consola
 console.log('Hello World');
@@ -28,16 +28,24 @@ const path = __dirname + '/views/index.html';
 }); */
 
 // TODO 5: Enviar petición de una solicitud json
-app.get('/json', (req, res) => {
+//app.get('/json', (req, res) => {
     // TODO 6: Crear un archivo de variables de entorno .env para configurar la aplicación 
     // ! [NO LOGRADO]
-    let response;
+/*     let response;
     if(process.env.MESSAGE_STYLE === "uppercase") {
         response = "Hello Json".toUpperCase();
     } else {
         response = "Hello Json";
     }
     res.json({"message": response});
+}); */
+
+// TODO 8: Crear middleware con método GET
+app.get('/now',function(req, res, next) {
+    req.time = new Date().toString();
+    next();
+}, function(req, res) {
+    res.json({time: req.time});
 });
 
  module.exports = app;
