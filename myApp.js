@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 // TODO 4: Agregar middleware express.static()
-app.use(express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 // TODO 1: Imprimir Hello World en consola
 console.log('Hello World');
