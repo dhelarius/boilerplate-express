@@ -1,4 +1,5 @@
 var express = require('express');
+var dotenv = require('dotenv').config();
 var app = express();
 
 // TODO 4: Agregar middleware express.static(), para cargar los estilos y embellecer el HTML
@@ -22,7 +23,7 @@ const path = __dirname + '/views/index.html';
 // TODO 5: Enviar petición de una solicitud json
 app.get('/json', (req, res) => {
     // TODO 6: Crear un archivo de variables de entorno .env para configurar la aplicación
-    const response;
+    let response;
     if(process.env.MESSAGE_STYLE === "uppercase") {
         response = "Hello Json".toUpperCase();
     } else {
