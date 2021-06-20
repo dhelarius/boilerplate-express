@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-// TODO 4: Agregar middleware express.static()
+// TODO 4: Agregar middleware express.static(), para cargar los estilos y embellecer el HTML
 app.use('/public', express.static(__dirname + '/public'));
 
 // TODO 1: Imprimir Hello World en consola
@@ -21,7 +21,14 @@ const path = __dirname + '/views/index.html';
 
 // TODO 5: Enviar petición de una solicitud json
 app.get('/json', (req, res) => {
-    res.json({"message": "Hello json"});
+    // TODO 6: Crear un archivo de variables de entorno .env para configurar la aplicación
+    const response;
+    if(process.env.MESSAGE_STYLE === "uppercase") {
+        response = "Hello Json".toUpperCase();
+    } else {
+        response = "Hello Json";
+    }
+    res.json({"message": response});
 })
 
  module.exports = app;
