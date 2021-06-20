@@ -19,7 +19,7 @@ const path = __dirname + '/views/index.html';
     res.sendFile(path);
 }); */
 
-// TODO 5: Enviar un una solictud json
+// TODO 5: Enviar petición de una solicitud json
 app.get('/json', (req, res) => {
     res.json({"message": "Hello json"});
 })
