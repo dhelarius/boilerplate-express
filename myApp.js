@@ -23,34 +23,45 @@ console.log('Hello World');
 // TODO 3: Mostrar un archivo HTML en la aplicación
 const path = __dirname + '/views/index.html';
 
-/* app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path);
-}); */
+});
 
 // TODO 5: Enviar petición de una solicitud json
-//app.get('/json', (req, res) => {
+app.get('/json', (req, res) => {
     // TODO 6: Crear un archivo de variables de entorno .env para configurar la aplicación 
     // ! [NO LOGRADO]
-/*     let response;
+    let response;
     if(process.env.MESSAGE_STYLE === "uppercase") {
         response = "Hello Json".toUpperCase();
     } else {
         response = "Hello Json";
     }
     res.json({"message": response});
-}); */
+});
 
 // TODO 8: Crear middleware con método GET
-/* app.get('/now',function(req, res, next) {
+app.get('/now',function(req, res, next) {
     req.time = new Date().toString();
     next();
 }, function(req, res) {
     res.json({time: req.time});
-}); */
+}); 
 
 // TODO 9: Agregar parámetro de entrada desde el cliente con el método GET
 app.get('/:word/echo', function(req, res) {
     res.json({echo: req.params.word});
 });
+
+// TODO 10: Crear una solicitud de consulta con el método GET
+app.route('/name').get(function(req, res) {
+    let { first :firstname, last: lastname } = req.query;
+    res.json({name: `${firstname} ${lastname}`});
+}).post();
+
+/* app.get('/name', function(req, res) {
+    let { first: firstname, last: lastname } = req.query;
+    res.json({name: `${firstname} ${lastname}`});
+}) */
 
  module.exports = app;
