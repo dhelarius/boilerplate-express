@@ -41,11 +41,16 @@ const path = __dirname + '/views/index.html';
 }); */
 
 // TODO 8: Crear middleware con método GET
-app.get('/now',function(req, res, next) {
+/* app.get('/now',function(req, res, next) {
     req.time = new Date().toString();
     next();
 }, function(req, res) {
     res.json({time: req.time});
+}); */
+
+// TODO 9: Agregar parámetro de entrada desde el cliente con el método GET
+app.get('/:word/echo', function(req, res) {
+    res.json({echo: req.params.word});
 });
 
  module.exports = app;
