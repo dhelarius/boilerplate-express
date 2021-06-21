@@ -61,7 +61,16 @@ app.get('/:word/echo', function(req, res) {
 app.route('/name').get(function(req, res) {
     let { first :firstname, last: lastname } = req.query;
     res.json({name: `${firstname} ${lastname}`});
-}).post();
+}).post(function(req, res) {
+    // TODO 12: Enviar datos a través de un formulario con el método POST
+    let { first: firstname, last: lastname } = req.body;
+    
+    const name = {
+        firstname: req.body.first,
+        lastname: req.body.last
+    }
+    res.send({name: `${firstname} ${lastname}`});
+});
 
 /* app.get('/name', function(req, res) {
     let { first: firstname, last: lastname } = req.query;
