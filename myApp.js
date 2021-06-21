@@ -1,6 +1,10 @@
 var express = require('express');
 var dotenv = require('dotenv').config();
+var bodyParser = require('body-parser');
 var app = express();
+
+// TODO 11: Agregar el paquete body-parser al proyecto
+app.use(bodyParser.urlencoded({extended: false}));
 
 // TODO 4: Agregar middleware express.static(), para cargar los estilos y embellecer el HTML
 app.use('/public', express.static(__dirname + '/public'));
